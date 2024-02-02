@@ -1,6 +1,5 @@
-import './App.scss'
+import './App.scss';
 import React, { useState } from 'react';
-import axios from 'axios';
 
 function App() {
   const [assignment, setAssignment] = useState({
@@ -27,7 +26,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Handle form submission (e.g., send data to server using Axios)
+    // Handle form submission (e.g., send data to server using Fetch)
 
     try {
       const formData = new FormData();
@@ -36,7 +35,10 @@ function App() {
       formData.append('dueDate', assignment.dueDate);
       formData.append('file', assignment.file);
 
-      await axios.post('http://localhost:5000/api/assignments', formData);
+      await fetch('http://localhost:5000/api/assignments', {
+        method: 'POST',
+        body: formData,
+      });
 
       // Handle success (e.g., show a success message)
     } catch (error) {
