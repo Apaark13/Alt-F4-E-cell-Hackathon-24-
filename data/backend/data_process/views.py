@@ -1,9 +1,8 @@
-# yourappname/views.py
-
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Student
-import subprocess
+from pdf_processing.ocr_image import pdftoimg
+
 
 def process_and_store_data(request):
     if request.method == 'POST':
@@ -17,12 +16,13 @@ def process_and_store_data(request):
 
         # Save the uploaded file
         file_path = f"media/student_files/{file_upload.name}"
-        with open(file_path, 'wb') as file:
-            for chunk in file_upload.chunks():
-                file.write(chunk)
+        # with open(file_path, 'wb') as file:
+        #     for chunk in file_upload.chunks():
+        #         file.write(chunk)
 
         # Call the external PDF processing script
-        subprocess.run(['python', 'pdf_processor.py', file_path])
+        output1=pdftoimg(file_path)
+        print(output1)
 
         # Continue with other operations and database storage
         processed_grade = grade.upper()
