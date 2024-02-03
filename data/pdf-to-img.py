@@ -7,8 +7,8 @@ from pdf2image.exceptions import (
  PDFSyntaxError
 )
 
-images = convert_from_path('assignment.pdf', 500, poppler_path=r'C:\Program Files\poppler-23.11.0\Library\bin')
+images = convert_from_path('handwriting.pdf', 500, poppler_path=r'C:\Program Files\poppler-23.11.0\Library\bin')
 
 for i, image in enumerate(images):
-    fname = './img/image'+str(i)+'.png'
-    image.save(fname, "PNG")
+    fname = './img/image'+str(i)+'.jpg'
+    image.save(fname, "JPEG")
