@@ -1,35 +1,67 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import React from "react";
+import Assgnment_mini from "./assgnment_mini";
+import "./student.scss"
+const assignmentData = [
+  {
+    assignmentTitle: "Math Homework",
+    duedate:"26-04-2024",
+    assignmentDescription: "Complete exercises 1-10 in the algebra textbook. Focus on solving equations and simplifying expressions."
+  },
+  {
+    assignmentTitle: "History Essay",
+    duedate:"26-04-2024",
+    assignmentDescription: "Write a 3-page essay on the causes and effects of World War II. Include key events, leaders, and their impact on the world."
+  },
+  {
+    assignmentTitle: "Science Experiment",
+    duedate:"26-04-2024",
+    assignmentDescription: "Conduct a simple experiment to demonstrate the principles of photosynthesis. Record observations and analyze the results in a lab report."
+  }
+];
 
-const Student = () => {
+const User = () => {
+
+  const assign = assignmentData.map((item) => {
+    return <Assgnment_mini  {...item} />;
+  });
   return (
-    <div>
-      <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">Student</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="MyTasks" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Task1</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Task2
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Task3</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="user">
+      <div className="user-profile">
+        <div className="pic">
+          <img src="/assets/user.png" alt="" />
+        </div>
+        <div className="details">
+          <h3>Dummy User</h3>
+          <div>
+            <ul>
+              <li>
+                <span>4</span>Sent
+              </li>
+              <li>
+                <span>12</span>Received
+              </li>
+              <li>
+                <span>23</span>Coupons
+              </li>
+            </ul>
+          </div>
+          <section>
+            bio - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Inventore dolores distinctio deserunt enim eaque aperiam quo
+            cupiditate aliquam! Vero possimus deserunt adipisci earum saepe
+            enim!
+          </section>
+        </div>
+      </div>
+      <hr />
+      <div className="addassign">
+         
+      </div>
+      <div className="user-coupons">
+      {assign}  
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Student
+export default User;
