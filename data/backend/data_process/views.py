@@ -12,7 +12,7 @@ def process_and_store_data(request):
         assignment_id = data.get('assignment_id')
         grade = data.get('grade')
         file_upload = request.FILES.get('file_upload')
-        file_upload = './assignment.pdf'
+        file_upload = '../assignment.pdf'
         # assignment_type = data.get('assignment_type')
 
         # Save the uploaded file
@@ -22,6 +22,7 @@ def process_and_store_data(request):
         #         file.write(chunk)
 
         # Call the external PDF processing script
+
         output1=pdftoimg(file_upload, "./pdf_processing/img/")
         print(output1)
 
