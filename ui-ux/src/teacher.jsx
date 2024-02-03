@@ -1,6 +1,6 @@
 import React from "react";
 import Assgnment_mini from "./assgnment_mini";
-import "./student.scss"
+import "./teacher.scss"
 const assignmentData = [
   {
     assignmentTitle: "Math Homework",
@@ -19,7 +19,7 @@ const assignmentData = [
   }
 ];
 
-const Student = () => {
+const Teacher = () => {
 
   const assign = assignmentData.map((item) => {
     return <Assgnment_mini  {...item} />;
@@ -54,7 +54,9 @@ const Student = () => {
         </div>
       </div>
       <hr />
-
+      <div className="addassign">
+         
+      </div>
       <div className="user-coupons">
       {assign}  
       </div>
@@ -62,4 +64,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default Teacher;
