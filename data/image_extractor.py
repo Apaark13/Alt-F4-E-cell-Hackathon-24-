@@ -1,4 +1,3 @@
-import os
 from pdf2image import convert_from_path
 import pytesseract
 import PIL.Image
@@ -6,8 +5,7 @@ import google.generativeai as genai
 from PIL import Image
 
 
-secret_key = os.environ.get('SECRET_KEY')
-genai.configure(api_key=secret_key)
+genai.configure(api_key="AIzaSyDgYpt8PJitj0ijxA1y0QLowZrdAXgki8w")
 model = genai.GenerativeModel('gemini-pro-vision')
 
 
