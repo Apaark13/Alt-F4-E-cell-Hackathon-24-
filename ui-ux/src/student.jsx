@@ -22,7 +22,10 @@ const assignmentData = [
 const Student = () => {
 
   const assign = assignmentData.map((item) => {
-    return <Assgnment_mini  {...item} />;
+    const handleClick = () => {
+        console.log(item);
+    };
+    return <Assgnment_mini  {...item} onClick={handleClick} />;
   });
   return (
     <div className="user">

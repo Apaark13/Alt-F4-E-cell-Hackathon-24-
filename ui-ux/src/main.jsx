@@ -8,6 +8,6 @@ import Teacher from './teacher.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Teacher/>
+    <Student/>
   </React.StrictMode>,
 )
